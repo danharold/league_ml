@@ -24,21 +24,10 @@ class RiotRequest:
     ## MATCH DATA RETRIEVAL
     
     def get_match(self, match_id):
-        """
-        Returns match data given match id
-
-            Parameters:
-                match_id (str): Desired match_id
-            
-            Returns:
-                match_data (dict): Response for the match with match_id
-        """
         r = requests.get('https://europe.api.riotgames.com/lol/match/v5/matches/{}/'.format(match_id), headers={"X-Riot-Token": self.api_key})
         return r.json()
     
     def get_matchlist(self, puuid, queue = 420, start = 0, count = 20, startTime = None, endTime = None):
-        """
-        """
         url = 'https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/{}/ids?queue={}&start={}&count={}'.format(
             puuid, queue, start, count
         )
