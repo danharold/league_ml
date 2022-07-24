@@ -87,13 +87,13 @@ class RiotRequest:
         r = requests.get('https://euw1.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5', headers={"X-Riot-Token": self.api_key})
         return r.json()
     
-    def get_summonerIds_from_players(players, self):
+    def get_summonerIds_from_players(self, players):
         summonerIds = []
         for i in range(len(players['entries'])):
             summonerIds.append(players['entries'][i]['summonerId'])
         return summonerIds
     
-    def get_puuids_from_summonerIds(summonerIds, self):
+    def get_puuids_from_summonerIds(self, summonerIds):
         puuids = []
         n = len(summonerIds)
         for i in range(n):
