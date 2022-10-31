@@ -47,7 +47,7 @@ class RiotRequest:
             puuid = puuids[i]
             while True:
                 print('Retrieving last {} matches from {} players (i = {})'.format(count, len(puuids), i))
-                url = 'https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/{}/ids?queue=420&type=ranked&start_time={}&start=0&count={}'.format(
+                url = 'https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/{}/ids?queue={}&type=ranked&start={}&count={}'.format(
                     puuid, queue, start, count
                 )
                 if startTime != None:

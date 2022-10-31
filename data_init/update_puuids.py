@@ -22,7 +22,7 @@ outputs = response['Stacks'][0]['Outputs']
 table_name = ''
 for output in outputs:
     keyName = output['OutputKey']
-    if keyName == "DataTableName":
+    if keyName == "PuuidTableName":
         table_name = output['OutputValue']
     
 
@@ -57,8 +57,8 @@ def update(p, count):
         n = count.inc()
         if n % 100 == 0:
             print(n)
-        k = "puuid/" + item
-        ddb.put_item(TableName = table_name, Item={'key':{'S': k}})
+        #k = "puuid/" + item
+        ddb.put_item(TableName = table_name, Item={'puuid':{'S': item}})
 
 threads = []
 for i in range(100):   
